@@ -1,7 +1,3 @@
-#For the game, two random options would be provided for which you have to guess the celebrity with more followers.
-#You can keep on playing untill unless you don't give a wrong answer.
-#You can see
-
 from game_data import data
 import random
 
