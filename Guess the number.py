@@ -45,12 +45,3 @@ def game():
             print("\n\tTry again")
 
 game()      
-       
-
-
-
-
-
-
-
-
