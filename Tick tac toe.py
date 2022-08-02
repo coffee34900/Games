@@ -157,4 +157,3 @@ while gameRunning:
     computer(board)
     checkIfWin(board)
     checkIfTie(board)
-     # hello my computer 
