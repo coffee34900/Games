@@ -1,3 +1,6 @@
+#User will get either 5 or 10 choices depending on the difficulty lever they choose and have to guess the number.
+#System will inform the user if their guess is either too high or too low.
+
 import random
 
 num=random.randint(1, 100)
