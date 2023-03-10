@@ -1,0 +1,46 @@
+#Etch a Sketch Game
+
+#This game is an implementation of the classic toy, Etch-A-Sketch, using the Python Turtle module.
+#Players can use the arrow keys to draw lines on the screen, and use the "c" key to clear the screen and start again.
+#The Turtle's movements simulate the mechanical movements of the toy, allowing players to create simple drawings and designs.
+#The game continues until the player chooses to close the window.
+
+#Importing libary
+from turtle import Turtle, Screen
+
+# Set up the turtle and screen
+x = Turtle()
+screen = Screen()
+screen.title("Etch-A-Sketch")
+
+# Define the movement functions
+def move_forward():
+    x.forward(10)
+
+def move_backward():
+    x.backward(10)
+
+def turn_left():
+    x.left(10)
+
+def turn_right():
+    x.right(10)
+
+def clear():
+    x.clear()
+    x.penup()
+    x.home()  #Call the function back to center (0,0)
+    x.pendown()
+
+# Bind the movement functions to keys
+screen.onkey(move_forward, "Up")
+screen.onkey(move_backward, "Down")
+screen.onkey(turn_left, "Left")
+screen.onkey(turn_right, "Right")
+screen.onkey(clear, "c")
+
+# Start listening for events
+screen.listen()
+
+# Keep the window open until the user closes it
+screen.mainloop()
