@@ -65,3 +65,4 @@ while racing:
 
 # Exit the screen when the user clicks on it
 screen.exitonclick()
+
