@@ -1,0 +1,67 @@
+#Turtle Race
+
+#This Python code uses the Turtle graphics library to create a simple turtle racing game.
+#The user is prompted to bet on the color of the turtle they think will win the race. 
+#The program then generates a group of turtles of different colors and moves them forward by random amounts until one of them crosses the finish line. 
+#The winner's color is displayed on the screen and the user is notified if they won or lost their bet. 
+#The program also includes a finish line and uses custom fonts and colors to create a visually appealing experience.
+
+from turtle import Turtle, Screen
+from random import randint
+
+# Create a screen and set its dimensions
+screen = Screen()
+screen.setup(width=600, height=500)
+
+# Set racing to False initially
+racing = False
+
+# Ask user to make a bet on the color of the winning turtle
+color_choice = screen.textinput(title="Make your bet!", prompt="Which color turtle will win the race? Choose from the following: red, orange, yellow, green, blue, purple")
+
+# Define the colors of the turtles
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+# Create turtles and add them to the list all_turtles
+all_turtles = []
+x = -230
+y = -100
+for indx in range(len(colors)):
+    turtle = Turtle(shape='turtle')
+    turtle.color(colors[indx])
+    turtle.penup()
+    turtle.goto(x=x, y=y)
+    y += 30
+    all_turtles.append(turtle)
+
+# Create a finish line turtle
+finish_line = Turtle()
+finish_line.penup()
+finish_line.goto(x=225, y=-120)
+finish_line.pendown()
+finish_line.goto(x=225, y=120)
+
+# Set racing to True if the user makes a bet
+if color_choice:
+    racing = True
+
+# Move each turtle forward by a random amount until one of them crosses the finish line
+while racing:
+    for turtle in all_turtles:
+        if turtle.xcor() > 220:
+            winner = turtle.pencolor()
+            racing = False
+            if winner == color_choice:
+                text = Turtle()
+                text.penup()
+                text.goto(0, 0)
+                text.write(f"Congratulations,{winner} turtle won!", align="center", font=("Arial", 20, "bold"))
+            else:
+                text = Turtle()
+                text.penup()
+                text.goto(0, 0)
+                text.write("Sorry, you lost! The " + winner + " turtle won.", align="center", font=("Arial", 20, "bold"))
+        turtle.forward(randint(0, 10))
+
+# Exit the screen when the user clicks on it
+screen.exitonclick()
